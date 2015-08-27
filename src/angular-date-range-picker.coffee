@@ -168,7 +168,7 @@ angular.module("dateRangePicker").directive "dateRangePicker", ["$compile", "$ti
         if $scope.showRanged
           if $scope.start
             sel = date == $scope.start
-            dis = date < $scope.start
+            dis = date < $scope.start || date > moment($scope.start).add(89, 'days')
           else
             sel = $scope.selection && $scope.selection.contains(date)
         else
