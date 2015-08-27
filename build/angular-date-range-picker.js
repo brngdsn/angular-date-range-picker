@@ -115,10 +115,13 @@
               w = parseInt((7 + date.date() - d) / 7);
               sel = false;
               dis = false;
+              if (date > moment()) {
+                dis = true;
+              }
               if ($scope.showRanged) {
                 if ($scope.start) {
                   sel = date === $scope.start;
-                  dis = date < $scope.start || date > moment($scope.start).add(89, 'days');
+                  dis = date < $scope.start || date > moment($scope.start).add(89, 'days') || date > moment();
                 } else {
                   sel = $scope.selection && $scope.selection.contains(date);
                 }
